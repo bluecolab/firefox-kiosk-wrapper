@@ -19,7 +19,7 @@ displayHelp(){
 verbose=false
 timeout=900000
 pollingRate=5
-website="https://bluecolab.blogs.pace.edu/blue-colab-test-site-2-3-3/"
+website="https://bluecolab.github.io/react-kiosk"
 refreshed=false
 
 #Checks for flags. -v enables verbose mode, -V echos the version information -t allows for user set timeout in milliseconds, -p allows for user set polling rate,and -w allows for user set website
