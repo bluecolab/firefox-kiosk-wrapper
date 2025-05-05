@@ -17,7 +17,7 @@ displayHelp(){
 
 #Sets verbose mode to off by default, sets the default timeout to 900,000 milliseconds (15 minutes), sets the default polling rate to 5 seconds, and sets the default website to Blue CoLab's kiosk website
 verbose=false
-timeout=900000
+timeout=300000
 pollingRate=5
 website="https://bluecolab.github.io/react-kiosk"
 refreshed=false
