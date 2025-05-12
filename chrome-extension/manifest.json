@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Kiosk Lock",
+  "version": "1.0",
+  "description": "Only allows access to bluecolab.github.io/react-kiosk",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": ["tabs"],
+  "host_permissions": ["<all_urls>"]
+}

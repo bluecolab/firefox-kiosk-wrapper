@@ -21,6 +21,8 @@ timeout=300000
 pollingRate=5
 website="https://bluecolab.github.io/react-kiosk"
 refreshed=false
+extension_path="/path/to/chrome-extension"
+sonification_path="path/to/sonification"
 
 #Checks for flags. -v enables verbose mode, -V echos the version information -t allows for user set timeout in milliseconds, -p allows for user set polling rate,and -w allows for user set website
 while getopts "h?vVt:p:w:" opt; do
@@ -31,8 +33,9 @@ while getopts "h?vVt:p:w:" opt; do
     v)  verbose=true
       ;;
     V)
-      echo "Kiosk Wrapper, Version 1.0.1"
+      echo "Kiosk Wrapper, Version 2.0.0"
       echo "Sebastian Roman 2024-05-04"
+      echo "Modified Kenji Okura + Victor Lima 2025-5-12"
       exit 0  
       ;;
     t)  timeout=$OPTARG
@@ -52,8 +55,14 @@ if $verbose; then
   echo "website: $website"
 fi
 
+#Starts sever to run data to music
+cd "$sonification_path" && python app.py &
+if [ "$verbose" = true ]; then
+  echo "Starting sonification and the script continues"
+fi
+
 #Creates the first instance of the kiosk
-firefox --kiosk $website &
+google-chrome --kiosk "$website" --load-extension="$extension_path" &
 if $verbose; then
   echo "started initial kiosk and the script continues"
 fi
@@ -77,7 +86,7 @@ while true; do
     fi
     if [ $refreshed = false ]; then
       #Restarts Firefox. Closing the previous instance is unnecessary. This will also still work if the user closed out of Firefox without stopping this script
-      firefox --kiosk $website &
+      google-chrome --kiosk "$website" --load-extension="$extension_path" &
       #Sets refreshed to true to prevent continuous refreshing
       refreshed=true
     fi
