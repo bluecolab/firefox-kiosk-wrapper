@@ -31,7 +31,7 @@ while getopts "h?vVt:p:w:" opt; do
     v)  verbose=true
       ;;
     V)
-      echo "Kiosk Wrapper, Version 1.0.0"
+      echo "Kiosk Wrapper, Version 1.0.1"
       echo "Sebastian Roman 2024-05-04"
       exit 0  
       ;;
