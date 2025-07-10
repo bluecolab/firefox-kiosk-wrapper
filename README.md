@@ -1,7 +1,7 @@
-# Firefox Kiosk Refresh Wrapper
+# Google Chrome Kiosk Refresh Wrapper
 
 ## Description
-The purpose of this program is to create a wrapper for Firefox's kiosk mode that restarts it after a period of inactivity
+The purpose of this program is to create a wrapper for Google Chrome's kiosk mode that restarts it after a period of inactivity
 
 ## Installation
 It's not packaged, you have to download it and run it like a normal shell script.
@@ -20,6 +20,7 @@ This repo is not open to new contributions at this time.
 
 ## Authors and acknowledgment
 Created by Sebastian Roman.
+Modified by Kenji Okura + Victor Lima 2025-05-12
 
 ## License
 Licensed under the GNU LGPL 3.0.

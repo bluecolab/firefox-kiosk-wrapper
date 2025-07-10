@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#The purpose of this program is to create a wrapper for Firefox's kiosk mode that restarts it after a period of inactivity. This script requires dbus, Gnome 4X in standard Wayland or single application Wayland mode (some versions of Gnome 3 may work, but they are untested), sleep, awk, Firefox Extended Support Release (ESR), and a POSIX-compliant shell. CMD, PowerShell, and Fish shells will not work, and Firefox ESR must be named or aliased to "firefox"!
+#The purpose of this program is to create a wrapper for Google Chrome's kiosk mode that restarts it after a period of inactivity. This script requires dbus, Gnome 4X in standard Wayland or single application Wayland mode (some versions of Gnome 3 may work, but they are untested), sleep, awk, Google Chrome, and a POSIX-compliant shell. CMD, PowerShell, and Fish shells will not work, and Google Chrome must be named or aliased to "google-chrome"!
 
 #Creates the documentation show when the -h (help) flag or an invalid option are used
 displayHelp(){
@@ -15,7 +15,7 @@ displayHelp(){
     exit 0
 }
 
-#Sets verbose mode to off by default, sets the default timeout to 900,000 milliseconds (15 minutes), sets the default polling rate to 5 seconds, and sets the default website to Blue CoLab's kiosk website
+#Sets verbose mode to off by default, sets the default timeout to 300,000 milliseconds (5 minutes), sets the default polling rate to 5 seconds, and sets the default website to Blue CoLab's kiosk website
 verbose=false
 timeout=300000
 pollingRate=5
@@ -34,8 +34,8 @@ while getopts "h?vVt:p:w:" opt; do
       ;;
     V)
       echo "Kiosk Wrapper, Version 2.0.0"
-      echo "Sebastian Roman 2024-05-04"
-      echo "Modified Kenji Okura + Victor Lima 2025-5-12"
+      echo "Created by Sebastian Roman 2024-05-04"
+      echo "Modified by Kenji Okura + Victor Lima 2025-05-12"
       exit 0  
       ;;
     t)  timeout=$OPTARG
@@ -85,7 +85,7 @@ while true; do
       echo "idle > $timeout"
     fi
     if [ $refreshed = false ]; then
-      #Restarts Firefox. Closing the previous instance is unnecessary. This will also still work if the user closed out of Firefox without stopping this script
+      #Restarts the browser. Closing the previous instance is unnecessary. This will also still work if the user closed out of the browser without stopping this script
       google-chrome --kiosk "$website" --load-extension="$extension_path" &
       #Sets refreshed to true to prevent continuous refreshing
       refreshed=true
