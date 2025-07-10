@@ -1,10 +1,10 @@
-# Google Chrome Kiosk Refresh Wrapper
+# Chrome Kiosk Refresh Wrapper
 
 ## Description
-The purpose of this program is to create a wrapper for Google Chrome's kiosk mode that restarts it after a period of inactivity
+The purpose of this program is to create a wrapper for Chrome's kiosk mode that restarts it after a period of inactivity
 
 ## Installation
-It's not packaged, you have to download it and run it like a normal shell script.
+Modify the path to sonification and path to chrome-extension per where you have them installed.
 
 ## Usage
 run `kiosk-wrapper -h` for usage information.
