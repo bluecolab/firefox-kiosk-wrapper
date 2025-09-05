@@ -20,6 +20,7 @@ This repo is not open to new contributions at this time.
 
 ## Authors and acknowledgment
 Created by Sebastian Roman.
+Modified by Kenji Okura + Victor Lima 2025-05-12
 
 ## License
 Licensed under the GNU LGPL 3.0.
