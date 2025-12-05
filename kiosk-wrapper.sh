@@ -67,6 +67,8 @@ if $verbose; then
   echo "started initial kiosk and the script continues"
 fi
 
+python -m http.server 9999 -d /home/kiosk-user/Videos
+
 #Creates forever loop
 while true; do 
   #Pauses the loop for as long as the polling rate is set to
