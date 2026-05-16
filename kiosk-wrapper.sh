@@ -22,7 +22,6 @@ pollingRate=5
 website="https://bluecolab.github.io/react-kiosk"
 refreshed=false
 extension_path="/path/to/chrome-extension"
-sonification_path="path/to/sonification"
 
 #Checks for flags. -v enables verbose mode, -V echos the version information -t allows for user set timeout in milliseconds, -p allows for user set polling rate,and -w allows for user set website
 while getopts "h?vVt:p:w:" opt; do
@@ -53,12 +52,6 @@ if $verbose; then
   echo "polling rate: $pollingRate seconds"
   echo "timeout: $timeout milliseconds"
   echo "website: $website"
-fi
-
-#Starts sever to run data to music
-cd "$sonification_path" && python app.py &
-if [ "$verbose" = true ]; then
-  echo "Starting sonification and the script continues"
 fi
 
 #Creates the first instance of the kiosk
